@@ -3,7 +3,7 @@
 An Omarchy theme built the way the style was built: black lacquer, gold
 linework, and geometry doing all the work. Square corners, a two pixel rail of
 foil over brass around the focused window, gaps stepped 1:2, and no blur
-anywhere (with Omarchy's Glassy toggle off — see the caveat below). The desktop
+anywhere (with Omarchy's Glassy toggle off, see the caveat below). The desktop
 should read as a machined surface, a gilt pavilion after dark rather than glass.
 
 It ships four wallpapers, all of them metal on black, one of them the default.
