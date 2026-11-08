@@ -14,9 +14,6 @@ behind it, and your own wallpapers for it live outside the theme entirely.
 ![Zigzag Moderne in a terminal session](preview-terminal.webp)
 ![Zigzag Moderne on an empty desktop](preview-wallpaper.webp)
 
-All three are real 1920x1080 captures of this theme applied, not mockups, shot
-on a virtual output so no window of anyone's is in frame.
-
 ---
 
 ## Apply
