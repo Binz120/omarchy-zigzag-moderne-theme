@@ -1,0 +1,160 @@
+# Zigzag Moderne: the shell surfaces.
+#
+# There is no glass here. The wallpaper is whatever you already had, so alpha
+# is spent on nothing: every pane is flat lacquer at 0.96 or above, and the
+# only thing separating a card from the field is a one pixel gold hairline.
+# Gold is the sole lit colour; verdigris does not appear, because the shell has no
+# success state, so green stays in the terminal where a clean exit means it.
+
+[bar]
+# A milled strip rather than a pane: flat, nearly opaque, gold on black.
+background       = "#060607"
+background-alpha = 0.97
+text             = "#E8DFC8"
+# Attention modules: recording, voxtype, alerts, updates. Gold, nothing else.
+active           = "#C9A227"
+scale-with-font  = true
+size-horizontal  = 26
+size-vertical    = 28
+
+[hyprland]
+# Foil to brass, the same rail the compositor draws, so a card and the window
+# it sits over cannot disagree about the edge.
+active-border            = "rgba(e8c46aff) rgba(a8862bff) 0deg"
+active-border-foreground = "#C9A227"
+
+[controls]
+# Idle chrome is stone; hover lifts it to bone; focus is gold. Nothing is
+# filled unless it is selected, and then only as a wash.
+normal-color        = "#B9AE93"
+normal-fill-alpha   = 0.03
+normal-border       = "#2A2620"
+normal-border-width = 1
+normal-border-alpha = 0.9
+
+hover-cursor-color        = "#E8DFC8"
+hover-cursor-fill-alpha   = 0.06
+hover-cursor-border       = "#C9A227"
+hover-cursor-border-width = 1
+hover-cursor-border-alpha = 0.4
+
+focus-color        = "#C9A227"
+focus-fill-alpha   = 0.09
+focus-border       = "#C9A227"
+focus-border-width = 1
+focus-border-alpha = 0.7
+
+selected-color        = "#E8DFC8"
+selected-fill-alpha   = 0.12
+selected-border       = "#C9A227"
+selected-border-width = 1
+selected-border-alpha = 1.0
+
+pressed-fill-alpha   = 0.18
+selection-fill-alpha = 0.28
+
+[spacing]
+scale = 1.0
+scale-with-font = true
+
+[font]
+base-size = 12
+
+[popups]
+# Raised panes: a shade of warm near black above the bar, still carrying the
+# gold hairline. The step in value is the separation, not blur.
+background       = "#14120F"
+background-alpha = 0.97
+text             = "#E8DFC8"
+border           = "hyprland.active-border"
+border-alpha     = 0.9
+border-width     = 1
+
+[tooltip]
+# Inverted chip: bone surface, lacquer text. Tooltips read like a gilt label
+# instead of dissolving into the dark.
+background       = "#E8DFC8"
+background-alpha = 0.98
+text             = "#0A0A0B"
+border           = "#C9A227"
+border-alpha     = 0.8
+border-width     = 1
+
+[notifications]
+background       = "#14120F"
+background-alpha = 0.97
+text             = "#E8DFC8"
+border           = "hyprland.active-border"
+border-alpha     = 0.9
+border-width     = 1
+# The countdown bar is the thing in motion: gold, like the rail.
+countdown        = "#C9A227"
+
+[launcher]
+background                = "#14120F"
+background-alpha          = 0.96
+text                      = "#E8DFC8"
+border                    = "hyprland.active-border"
+border-alpha              = 0.9
+border-width              = 1
+scrim                     = "#040405"
+scrim-alpha               = 0.60
+# The selected row is lit from within, not filled: gold wash, foil text.
+selected-background       = "#C9A227"
+selected-background-alpha = 0.10
+selected-text             = "#E8C46A"
+selected-border           = "#C9A227"
+selected-border-alpha     = 0.5
+
+[menu]
+background                = "#100E0C"
+background-alpha          = 0.97
+text                      = "#E8DFC8"
+border                    = "hyprland.active-border"
+border-alpha              = 0.9
+border-width              = 1
+scrim                     = "#040405"
+scrim-alpha               = 0.60
+selected-background       = "#C9A227"
+selected-background-alpha = 0.10
+selected-text             = "#E8C46A"
+selected-border           = "#C9A227"
+selected-border-alpha     = 0.5
+
+[polkit]
+background       = "#100E0C"
+background-alpha = 0.98
+text             = "#E8DFC8"
+# Failure is lacquer red, the same hue as ANSI red: not a change, and
+# emphatically not a success.
+text-error       = "#D24A3A"
+border           = "hyprland.active-border"
+border-error     = "#D24A3A"
+border-alpha     = 0.9
+border-width     = 1
+scrim            = "#040405"
+scrim-alpha      = 0.64
+accent           = "#C9A227"
+
+[lock]
+# The room closes: nearly opaque lacquer, the rail brighter while typing, red on
+# a wrong password. Nothing of the wallpaper survives except a trace.
+background       = "#040405"
+background-alpha = 0.88
+text             = "#E8DFC8"
+placeholder      = "#8A8168"
+text-error       = "#D24A3A"
+border           = "hyprland.active-border"
+border-active    = "hyprland.active-border"
+border-error     = "#D24A3A"
+border-alpha     = 0.9
+border-width     = 1
+selection        = "#C9A227"
+selection-alpha  = 0.35
+
+[image-picker]
+text                    = "#E8DFC8"
+selected-border         = "#C9A227"
+selected-border-alpha   = 1.0
+unselected-border       = "#2A2620"
+unselected-border-alpha = 0.9

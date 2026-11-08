@@ -1,0 +1,59 @@
+# Zigzag Moderne: a gilded pavilion after dark.
+#
+# Five anchors, and the room they build:
+#
+#   #0A0A0B  lacquer     the field: background, depth, scrim, shadow
+#   #E8DFC8  bone        type: body text, hairlines, everything legible   14.9:1
+#   #C9A227  gold        structure: borders, focus, links, the lit rail    8.2:1
+#   #E8C46A  foil        emphasis: cursor, active glyphs, the lit edge    11.8:1
+#   #D24A3A  lacquer red failure only: errors, deletions                   4.5:1
+#
+# Everything else is a shade mixed from those five or a hue held at the same
+# low chroma, so the metal stays the only thing that means "look here".
+#
+# The geometry is the idea, not a picture: square corners, a two pixel gold
+# rail on the focused window, gaps stepped 1:2, and nothing blurred anywhere.
+# A machined surface, not glass. Contrast ratios below are measured against
+# the field (WCAG).
+
+mode = "dark"
+
+accent = "#C9A227"                # Gold: focus, links, functions, the rail
+selection = "#2A2620"             # Warm charcoal: selection fill, dividers
+selection_background = "#2A2620"  # Warm charcoal
+selection_foreground = "#F2E8D5"  # Bone over charcoal (16.3:1)
+muted = "#8A8168"                 # Bone pulled toward stone: comments, dim chrome (5.1:1)
+
+background = "#0A0A0B"            # Lacquer
+dark_background = "#060607"       # Lacquer minus a shade: bars, recessed panels
+darker_background = "#040405"     # The room behind the room: scrims, shadows
+lighter_background = "#17150F"    # Warm toned panel: raised cards and partitions
+
+foreground = "#E8DFC8"            # Bone: body text
+dark_foreground = "#6B6455"       # Recessed glyphs, btop's low gradient step (3.4:1,
+                                  # decorative only, never body text)
+light_foreground = "#B9AE93"      # Secondary text, graph labels
+bright_foreground = "#F7F1E3"     # Cursor, emphasis, white hot
+
+# Foil into brass along the focused edge: one metal, lit at the top.
+hyprland_active_border = "rgba(e8c46aff) rgba(a8862bff) 0deg"
+hyprland_inactive_border = "rgba(8a816899)"
+
+# ANSI slots double as the code roles the Omarchy templates render. The support
+# hues stay metals and stone: brass, verdigris, patina, midnight, plum, so
+# terminal output still reads as this room.
+red = "#D24A3A"                   # Lacquer red: errors, deletions
+yellow = "#D9B44A"                # Foil: constants, types, warnings
+orange = "#A8862B"                # Patinated brass: numbers, changes
+green = "#3F8F6B"                 # Verdigris: success, additions, clean status
+cyan = "#58A8A0"                  # Patina: parameters, members, network
+blue = "#6889C4"                  # Midnight blue: functions, structure
+magenta = "#B06CAA"               # Plum: attention, keys, modified files
+brown = "#8A6B1F"                 # Antique brass: the rarely used eighth hue
+
+bright_red = "#F0715C"
+bright_yellow = "#E8C46A"
+bright_green = "#7FC79E"
+bright_cyan = "#8ED4CB"
+bright_blue = "#8FB3E0"
+bright_magenta = "#CE8FC8"

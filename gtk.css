@@ -1,0 +1,431 @@
+/*
+ * Zigzag Moderne: a GTK 3 and GTK 4 companion
+ * ──────────────────────────────────────────────────────────────────────────
+ * Flat lacquer, gold hairlines, and square corners everywhere: the sheet keeps
+ * the compositor's geometry rather than softening it. Set over Adwaita; apps
+ * that style themselves will ignore most of it, which is fine.
+ *
+ * The desktop imports this file once, from the active theme, so it applies
+ * only while Zigzag Moderne is applied:
+ *
+ *   printf '@import url("file://%s/.local/state/omarchy/current/theme/gtk.css");\n' "$HOME" \
+ *     > ~/.config/gtk-4.0/gtk.css     # and the same for gtk-3.0
+ *
+ * Every colour below is a colors.toml value or an alpha of one; the palette
+ * stays closed. Radii are 0 on purpose: the style is rectilinear.
+ */
+
+/* ── Palette ─────────────────────────────────────────────────────────────── */
+@define-color lacquer #0A0A0B;      /* the field */
+@define-color chrome #060607;       /* bar, recessed wells */
+@define-color void #040405;         /* the deepest dark */
+@define-color raised #14120F;       /* surfaces one step up */
+@define-color well #100E0C;         /* views, menu cards */
+@define-color wash #2A2620;         /* selection fill, texture */
+@define-color bone #E8DFC8;         /* body text */
+@define-color stone #B9AE93;        /* secondary text, rules */
+@define-color muted #8A8168;        /* comments, dim labels */
+@define-color dust #6B6455;         /* disabled, decorative */
+@define-color cream #F2E8D5;        /* text over a selection */
+@define-color white #F7F1E3;        /* maximum emphasis */
+@define-color gold #C9A227;         /* the rail: focus and links */
+@define-color foil #E8C46A;         /* emphasis */
+@define-color brass #A8862B;        /* warning */
+@define-color verdigris #3F8F6B;    /* success */
+@define-color patina #58A8A0;       /* information */
+@define-color lacquerred #D24A3A;   /* error, destructive */
+
+/* ── Adwaita semantics ───────────────────────────────────────────────────── */
+@define-color accent_bg_color @gold;
+@define-color accent_fg_color @lacquer;
+@define-color accent_color @gold;
+
+@define-color window_bg_color @lacquer;
+@define-color window_fg_color @bone;
+@define-color view_bg_color @well;
+@define-color view_fg_color @bone;
+
+@define-color headerbar_bg_color @raised;
+@define-color headerbar_fg_color @bone;
+@define-color headerbar_border_color @wash;
+@define-color headerbar_backdrop_color @chrome;
+@define-color headerbar_shade_color alpha(@void, 0.35);
+
+@define-color card_bg_color @raised;
+@define-color card_fg_color @bone;
+@define-color card_shade_color alpha(@void, 0.30);
+
+@define-color dialog_bg_color @raised;
+@define-color dialog_fg_color @bone;
+@define-color popover_bg_color @raised;
+@define-color popover_fg_color @bone;
+
+@define-color sidebar_bg_color @chrome;
+@define-color sidebar_fg_color @bone;
+@define-color sidebar_backdrop_color @lacquer;
+@define-color sidebar_shade_color alpha(@void, 0.30);
+@define-color secondary_sidebar_bg_color @lacquer;
+@define-color secondary_sidebar_fg_color @bone;
+@define-color secondary_sidebar_backdrop_color @chrome;
+@define-color secondary_sidebar_shade_color alpha(@void, 0.25);
+
+@define-color destructive_bg_color @lacquerred;
+@define-color destructive_fg_color @cream;
+@define-color success_bg_color @verdigris;
+@define-color success_fg_color @lacquer;
+@define-color warning_bg_color @brass;
+@define-color warning_fg_color @lacquer;
+@define-color error_bg_color @lacquerred;
+@define-color error_fg_color @cream;
+
+@define-color borders alpha(@stone, 0.18);
+@define-color shade_color alpha(@void, 0.35);
+@define-color scrollbar_outline_color alpha(@lacquer, 0.90);
+
+/* GTK 3 and plain GTK 4 read these legacy names from Adwaita's built-in sheet;
+   libadwaita's sheet never defines them, so a symbol-only theme leaves those
+   widgets on Adwaita. Keep them in lockstep with the palette. */
+@define-color theme_bg_color @lacquer;
+@define-color theme_fg_color @bone;
+@define-color theme_base_color @well;
+@define-color theme_text_color @bone;
+@define-color theme_selected_bg_color @wash;
+@define-color theme_selected_fg_color @cream;
+@define-color theme_unfocused_bg_color @lacquer;
+@define-color theme_unfocused_fg_color @muted;
+@define-color theme_unfocused_base_color @well;
+@define-color theme_unfocused_text_color @muted;
+@define-color theme_unfocused_selected_bg_color @wash;
+@define-color theme_unfocused_selected_fg_color @cream;
+@define-color insensitive_bg_color @lacquer;
+@define-color insensitive_fg_color @dust;
+@define-color insensitive_base_color @well;
+@define-color unfocused_borders alpha(@stone, 0.12);
+@define-color unfocused_insensitive_color alpha(@dust, 0.70);
+@define-color content_view_bg @well;
+@define-color text_view_bg @well;
+@define-color error_color @lacquerred;
+@define-color warning_color @brass;
+@define-color success_color @verdigris;
+
+/* ── Typography ──────────────────────────────────────────────────────────── */
+.title-1, .title-2, .title-3, .title-4,
+headerbar .title,
+label.heading,
+.heading {
+    font-weight: 700;
+}
+
+.dim-label,
+label.dim-label {
+    color: @muted;
+    /* Adwaita keeps .dim-label at opacity 0.55, which would drag @muted down
+       to ~2.3:1; the palette already picked a dim colour, so stop the double. */
+    opacity: 1;
+}
+
+/* ── Windows and header bars ─────────────────────────────────────────────── */
+window,
+window.background,
+.background,
+dialog,
+messagedialog {
+    background-color: @lacquer;
+    color: @bone;
+}
+
+headerbar {
+    background-image: none;
+    background-color: @raised;
+    color: @bone;
+    border-bottom: 1px solid alpha(@gold, 0.28);
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 40px;
+}
+
+headerbar:backdrop {
+    background-color: @chrome;
+    color: @muted;
+    border-color: alpha(@stone, 0.16);
+}
+
+headerbar entry,
+headerbar spinbutton {
+    background-color: @well;
+    border-color: alpha(@stone, 0.20);
+}
+
+window.csd,
+window.csd > .titlebar,
+window.csd > .background {
+    border-radius: 0;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+button {
+    background-image: none;
+    background-color: @raised;
+    color: @bone;
+    border: 1px solid alpha(@stone, 0.20);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 6px 12px;
+}
+
+button:hover {
+    background-image: linear-gradient(alpha(@gold, 0.10), alpha(@gold, 0.10));
+    border-color: alpha(@gold, 0.45);
+}
+
+button:active,
+button:checked {
+    background-image: linear-gradient(alpha(@gold, 0.18), alpha(@gold, 0.18));
+    border-color: @gold;
+    color: @white;
+}
+
+button:focus {
+    outline: 2px solid alpha(@gold, 0.65);
+    outline-offset: -2px;
+}
+
+button.suggested-action {
+    background-color: @gold;
+    border-color: @brass;
+    color: @lacquer;
+}
+
+button.suggested-action:hover {
+    background-image: linear-gradient(alpha(@foil, 0.30), alpha(@foil, 0.30));
+}
+
+button.destructive-action {
+    background-color: @lacquerred;
+    border-color: alpha(@void, 0.45);
+    color: @cream;
+}
+
+button.destructive-action:hover {
+    background-image: linear-gradient(alpha(@void, 0.18), alpha(@void, 0.18));
+}
+
+button.flat {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+button.flat:hover {
+    background-color: alpha(@gold, 0.12);
+}
+
+/* ── Entries and views ───────────────────────────────────────────────────── */
+entry,
+spinbutton,
+textview text,
+.view,
+list.view,
+iconview,
+scrolledwindow viewport {
+    background-color: @well;
+    color: @bone;
+    border-radius: 0;
+}
+
+entry,
+spinbutton {
+    border: 1px solid alpha(@stone, 0.20);
+    padding: 6px 10px;
+    box-shadow: none;
+}
+
+entry:focus-within,
+entry:focus,
+spinbutton:focus-within {
+    border-color: @gold;
+    box-shadow: 0 0 0 1px alpha(@gold, 0.35);
+}
+
+selection {
+    background-color: @wash;
+    color: @cream;
+}
+
+*:link,
+*:visited {
+    color: @gold;
+}
+
+/* ── Cards, frames, separators ───────────────────────────────────────────── */
+.card,
+frame > border,
+frame {
+    background-color: @raised;
+    border: 1px solid alpha(@stone, 0.16);
+    border-radius: 0;
+}
+
+separator {
+    background-color: alpha(@stone, 0.16);
+    min-width: 1px;
+    min-height: 1px;
+}
+
+/* ── Lists and sidebars ──────────────────────────────────────────────────── */
+list,
+list > row {
+    background-color: transparent;
+    color: @bone;
+}
+
+row:hover,
+list > row:hover {
+    background-color: alpha(@gold, 0.07);
+}
+
+row:selected,
+list > row:selected,
+treeview.view:selected,
+columnview > listview > row:selected {
+    background-color: alpha(@gold, 0.16);
+    color: @white;
+}
+
+.navigation-sidebar,
+.sidebar,
+placessidebar {
+    background-color: @chrome;
+    color: @bone;
+}
+
+.navigation-sidebar row,
+.sidebar row {
+    border-radius: 0;
+}
+
+.navigation-sidebar row:selected,
+.sidebar row:selected {
+    background-color: alpha(@gold, 0.16);
+    color: @white;
+    box-shadow: inset 2px 0 0 @gold;
+}
+
+/* ── Popovers, menus, tooltips ───────────────────────────────────────────── */
+popover,
+popover.background,
+menu,
+menubar > item {
+    background-color: @raised;
+    color: @bone;
+    border: 1px solid alpha(@gold, 0.30);
+    border-radius: 0;
+    box-shadow: 0 10px 24px -16px alpha(@void, 0.9);
+}
+
+popover modelbutton:hover,
+menu menuitem:hover {
+    background-color: alpha(@gold, 0.12);
+    color: @white;
+}
+
+tooltip {
+    background-color: @bone;
+    color: @lacquer;
+    border: 1px solid @gold;
+    border-radius: 0;
+    padding: 4px 8px;
+}
+
+/* ── Controls ────────────────────────────────────────────────────────────── */
+switch:checked {
+    background-color: @gold;
+}
+
+switch:checked slider {
+    background-color: @lacquer;
+}
+
+check:checked,
+radio:checked {
+    background-color: @gold;
+    color: @lacquer;
+    border-color: @brass;
+}
+
+scale trough,
+progressbar trough {
+    background-color: @wash;
+    border-radius: 0;
+    min-height: 6px;
+}
+
+scale highlight,
+progressbar progress,
+levelbar block.filled {
+    background-image: linear-gradient(to right, @gold, @foil);
+    border-radius: 0;
+}
+
+scale slider {
+    background-color: @bone;
+    border: 2px solid @gold;
+    border-radius: 0;
+    min-width: 14px;
+    min-height: 14px;
+}
+
+levelbar block.low { background-color: @lacquerred; }
+levelbar block.high { background-color: @verdigris; }
+levelbar block.full { background-color: @gold; }
+
+scrollbar slider {
+    background-color: alpha(@stone, 0.35);
+    border-radius: 0;
+    min-width: 6px;
+    min-height: 6px;
+}
+
+scrollbar slider:hover {
+    background-color: @stone;
+}
+
+scrollbar trough {
+    background-color: transparent;
+}
+
+/* ── Header and status surfaces ──────────────────────────────────────────── */
+toolbar {
+    background-color: @raised;
+    border-bottom: 1px solid alpha(@stone, 0.16);
+}
+
+statusbar {
+    background-color: @raised;
+    color: @muted;
+}
+
+infobar.info,
+infobar.question {
+    background-color: alpha(@patina, 0.12);
+    color: @bone;
+    border-bottom: 1px solid alpha(@stone, 0.16);
+}
+
+infobar.warning {
+    background-color: alpha(@brass, 0.16);
+    color: @bone;
+}
+
+infobar.error {
+    background-color: alpha(@lacquerred, 0.18);
+    color: @bone;
+}
+
+notebook > header tab:checked {
+    box-shadow: inset 0 -2px 0 @gold;
+    color: @white;
+}
+
+notebook > header tab {
+    color: @muted;
+}
