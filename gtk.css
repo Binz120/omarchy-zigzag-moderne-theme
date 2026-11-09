@@ -5,14 +5,15 @@
  * the compositor's geometry rather than softening it. Set over Adwaita; apps
  * that style themselves will ignore most of it, which is fine.
  *
- * The desktop imports this file once, from the active theme, so it applies
- * only while Zigzag Moderne is applied:
+ * Omarchy's GTK shim already imports this file from the active theme, so it
+ * applies only while Zigzag Moderne is applied. If that shim is missing, write
+ * the import by hand (and for gtk-3.0 as well):
  *
  *   printf '@import url("file://%s/.local/state/omarchy/current/theme/gtk.css");\n' "$HOME" \
- *     > ~/.config/gtk-4.0/gtk.css     # and the same for gtk-3.0
+ *     > ~/.config/gtk-4.0/gtk.css
  *
- * Every colour below is a colors.toml value or an alpha of one; the palette
- * stays closed. Radii are 0 on purpose: the style is rectilinear.
+ * Every colour below is a colors.toml or shell.toml value, or an alpha of one;
+ * the palette stays closed. Radii are 0 on purpose: the style is rectilinear.
  */
 
 /* ── Palette ─────────────────────────────────────────────────────────────── */
@@ -34,6 +35,8 @@
 @define-color verdigris #3F8F6B;    /* success */
 @define-color patina #58A8A0;       /* information */
 @define-color lacquerred #D24A3A;   /* error, destructive */
+@define-color darkred #B23E30;      /* destructive fill; cream text 4.8:1 */
+@define-color brightred #F0715C;    /* error text on raised/view surfaces */
 
 /* ── Adwaita semantics ───────────────────────────────────────────────────── */
 @define-color accent_bg_color @gold;
@@ -69,13 +72,13 @@
 @define-color secondary_sidebar_backdrop_color @chrome;
 @define-color secondary_sidebar_shade_color alpha(@void, 0.25);
 
-@define-color destructive_bg_color @lacquerred;
+@define-color destructive_bg_color @darkred;
 @define-color destructive_fg_color @cream;
 @define-color success_bg_color @verdigris;
 @define-color success_fg_color @lacquer;
 @define-color warning_bg_color @brass;
 @define-color warning_fg_color @lacquer;
-@define-color error_bg_color @lacquerred;
+@define-color error_bg_color @darkred;
 @define-color error_fg_color @cream;
 
 @define-color borders alpha(@stone, 0.18);
@@ -104,7 +107,7 @@
 @define-color unfocused_insensitive_color alpha(@dust, 0.70);
 @define-color content_view_bg @well;
 @define-color text_view_bg @well;
-@define-color error_color @lacquerred;
+@define-color error_color @brightred;
 @define-color warning_color @brass;
 @define-color success_color @verdigris;
 
@@ -201,13 +204,16 @@ button.suggested-action:hover {
 }
 
 button.destructive-action {
-    background-color: @lacquerred;
+    background-color: @darkred;
     border-color: alpha(@void, 0.45);
     color: @cream;
 }
 
-button.destructive-action:hover {
+button.destructive-action:hover,
+button.destructive-action:active,
+button.destructive-action:checked {
     background-image: linear-gradient(alpha(@void, 0.18), alpha(@void, 0.18));
+    color: @cream;
 }
 
 button.flat {

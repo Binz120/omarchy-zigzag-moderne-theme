@@ -1,7 +1,7 @@
 # Zigzag Moderne: the shell surfaces.
 #
 # There is no glass here. The wallpaper is whatever you already had, so alpha
-# is spent on nothing: every pane is flat lacquer at 0.96 or above, and the
+# is spent on nothing: every pane is flat lacquer at 0.88 or above, and the
 # only thing separating a card from the field is a one pixel gold hairline.
 # Gold is the sole lit colour; verdigris does not appear, because the shell has no
 # success state, so green stays in the terminal where a clean exit means it.
@@ -125,9 +125,10 @@ selected-border-alpha     = 0.5
 background       = "#100E0C"
 background-alpha = 0.98
 text             = "#E8DFC8"
-# Failure is lacquer red, the same hue as ANSI red: not a change, and
-# emphatically not a success.
-text-error       = "#D24A3A"
+# Failure is red, the same hue as ANSI red: not a change, and emphatically not
+# a success. The card sits above the field, where the field red falls under
+# 4.5:1, so error text uses the lifted bright red (6.6:1).
+text-error       = "#F0715C"
 border           = "hyprland.active-border"
 border-error     = "#D24A3A"
 border-alpha     = 0.9
@@ -137,13 +138,14 @@ scrim-alpha      = 0.64
 accent           = "#C9A227"
 
 [lock]
-# The room closes: nearly opaque lacquer, the rail brighter while typing, red on
-# a wrong password. Nothing of the wallpaper survives except a trace.
+# The room closes: nearly opaque lacquer, the rail brighter while typing, the
+# lifted red on a wrong password. Nothing of the wallpaper survives except a
+# trace.
 background       = "#040405"
 background-alpha = 0.88
 text             = "#E8DFC8"
 placeholder      = "#8A8168"
-text-error       = "#D24A3A"
+text-error       = "#F0715C"
 border           = "hyprland.active-border"
 border-active    = "hyprland.active-border"
 border-error     = "#D24A3A"

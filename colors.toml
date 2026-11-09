@@ -21,7 +21,7 @@ mode = "dark"
 accent = "#C9A227"                # Gold: focus, links, functions, the rail
 selection = "#2A2620"             # Warm charcoal: selection fill, dividers
 selection_background = "#2A2620"  # Warm charcoal
-selection_foreground = "#F2E8D5"  # Bone over charcoal (16.3:1)
+selection_foreground = "#F2E8D5"  # Cream over charcoal (12.4:1)
 muted = "#8A8168"                 # Bone pulled toward stone: comments, dim chrome (5.1:1)
 
 background = "#0A0A0B"            # Lacquer
@@ -35,7 +35,8 @@ dark_foreground = "#6B6455"       # Recessed glyphs, btop's low gradient step (3
 light_foreground = "#B9AE93"      # Secondary text, graph labels
 bright_foreground = "#F7F1E3"     # Cursor, emphasis, white hot
 
-# Foil into brass along the focused edge: one metal, lit at the top.
+# Foil into brass along the focused edge: one metal, lit at the left
+# (0deg runs left to right).
 hyprland_active_border = "rgba(e8c46aff) rgba(a8862bff) 0deg"
 hyprland_inactive_border = "rgba(8a816899)"
 
@@ -57,3 +58,7 @@ bright_green = "#7FC79E"
 bright_cyan = "#8ED4CB"
 bright_blue = "#8FB3E0"
 bright_magenta = "#CE8FC8"
+
+# Not an ANSI slot: the red anchor darkened so filled destructive surfaces keep
+# cream text above 4.5:1. Terminals and templates ignore it; gtk.css uses it.
+dark_red = "#B23E30"

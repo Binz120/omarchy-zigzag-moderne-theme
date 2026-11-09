@@ -6,9 +6,11 @@ foil over brass around the focused window, gaps stepped 1:2, and no blur
 anywhere (with Omarchy's Glassy toggle off, see the caveat below). The desktop
 should read as a machined surface, a gilt pavilion after dark rather than glass.
 
-It ships four wallpapers, all of them metal on black, one of them the default.
-The geometry lives in the config, so the theme stands on its own whatever is
-behind it, and your own wallpapers for it live outside the theme entirely.
+It ships four stills — two gold skulls on black, a memento mori medallion over
+fog, and a gilt-veined illustration — one of them the default. The rail travels
+in `colors.toml`, so it applies on any install; the rest of the geometry is the
+short block below for `hyprland.lua`. Your own wallpapers live outside the theme
+entirely.
 
 ![Zigzag Moderne with an editor and a file manager open](preview.webp)
 ![Zigzag Moderne in a terminal session](preview-terminal.webp)
@@ -20,14 +22,18 @@ behind it, and your own wallpapers for it live outside the theme entirely.
 
 ```bash
 omarchy theme install https://github.com/Binz120/omarchy-zigzag-moderne-theme
-omarchy theme set "Zigzag Moderne"
 ```
 
-`omarchy theme install` strips the leading `omarchy-` and the trailing `-theme`
-from the repository name, so the theme arrives as `zigzag-moderne` and lists as
-Zigzag Moderne. A repository install drops `hyprland.lua` and the terminal
-configs; see
+`omarchy theme install` clones the repo and applies the theme. It strips the
+leading `omarchy-` and the trailing `-theme` from the repository name, so the
+theme arrives as `zigzag-moderne` and lists as Zigzag Moderne. A repository
+install drops `hyprland.lua` and the terminal configs; see
 [Where the geometry actually comes from](#where-the-geometry-actually-comes-from).
+
+Re-applying with `omarchy theme set "Zigzag Moderne"` refreshes the palette but
+also advances the background to the next file; pin one with
+`omarchy theme bg set <path>` if you do not want that.
+
 The work tree that produced this repository keeps `hyprland.lua` locally, which
 is where the full geometry lives.
 
@@ -57,8 +63,13 @@ same low chroma. Ratios are measured against the field.
 
 Support hues stay metals and stone: patinated brass for numbers, verdigris for
 success, patina for parameters, midnight blue for functions, plum for keywords.
-`brown` is antique brass, and `dark_foreground` is the one value below 4.5:1,
-decorative only and never body text.
+`brown` (4.0:1) and `dark_foreground` (3.4:1) are the two values below 4.5:1 on
+the field; use them for decoration, never body text.
+
+`dark_red` (`#B23E30`) is the red anchor darkened for filled destructive
+surfaces, where it carries cream text at 4.8:1. `bright_red` (`#F0715C`) carries
+error text on the raised and view surfaces, where the field red drops to
+4.3–4.4:1.
 
 **The one lit colour rule.** Gold means attention and nothing else. Verdigris
 appears only in the terminal palette, because `green` must mean success there;
@@ -76,18 +87,22 @@ success state.
   hairline.
 - **The step.** `gaps_in = 6`, `gaps_out = 12`. The 1:2 ratio is deliberate; the
   rhythm is the ornament.
-- **No glass.** With the Glassy toggle off, blur is off and windows sit at 1.0
+- **No glass.** With both Glassy toggles off, blur is off and windows sit at 1.0
   and 0.97 opacity. Shell
-  surfaces sit between 0.96 and 0.98, separated by value and a one pixel hairline
-  rather than by translucency. A flat lacquer surface, not a pane of glass.
+  surfaces sit between 0.88 and 0.98 (the lock field is the exception),
+  separated by value and a one pixel hairline rather than by translucency. A flat
+  lacquer surface, not a pane of glass.
 
-  Measured caveat: Omarchy's *Glassy* profile
-  (`state/omarchy/toggles/hypr/bar-glassy.lua`) is loaded **after** theme files
-  and turns blur back on, so with Glassy enabled you get `blur:enabled = true`,
-  `size 4` and `passes 2` regardless of what the theme asks for. The shell still
-  reads flat because it sits at 0.96 or above, but Glassy also sets terminal
-  alpha to 0.65 and empties btop's `main_bg`, so the machined surface is only
-  true with the Glassy toggle off.
+  Measured caveat: Omarchy's **Glassy Windows** profile
+  (`~/.local/state/omarchy/toggles/hypr/window-glassy.lua`) is loaded **after**
+  theme files and turns blur back on, so with it enabled you get
+  `blur:enabled = true`, `size 4` and `passes 2` regardless of what the theme
+  asks for. The bar and popups still read flat because they sit at 0.96 or above,
+  but Glassy Windows also sets terminal alpha to 0.65 and empties btop's
+  `main_bg`, so the machined surface is only true with it off. The **Glassy Bar**
+  profile (`bar-glassy.lua`) only blurs the bar itself. Turn them off with
+  `omarchy hyprland window transparency opaque` and
+  `omarchy bar background opaque`.
 - **Mechanical motion.** One near linear curve, no overshoot, `popin 100%` on
   windows, `slide` rather than `slidefade` on workspaces. A switch throws; it
   does not bloom.
@@ -140,7 +155,7 @@ hl.config({
 | `icons.theme` | `Yaru-olive-dark`. |
 | `backgrounds/` | Four 16:9 stills. `01` is the default; see [Wallpapers](#wallpapers). |
 | `preview.webp` | The main shot: an editor on `colors.toml` beside a file manager on the theme's own wallpapers. |
-| `preview-terminal.webp` | The palette specimen, with an ANSI ramp, a syntax sample and a legend, beside btop's memory view. |
+| `preview-terminal.webp` | The palette specimen, with an ANSI ramp, a syntax sample and a legend, beside btop's memory and disk views. |
 | `preview-wallpaper.webp` | The clean desktop: wallpaper and bar, nothing open. |
 
 Terminals, editors and most other apps are rendered from `colors.toml` by
