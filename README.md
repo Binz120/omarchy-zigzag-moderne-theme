@@ -21,13 +21,12 @@ entirely.
 ## Apply
 
 ```bash
-omarchy theme install https://github.com/Binz120/omarchy-umbrae-theme
+omarchy theme install https://github.com/Binz120/umbrae
 ```
 
-`omarchy theme install` clones the repo and applies the theme. It strips the
-leading `omarchy-` and the trailing `-theme` from the repository name, so the
-theme arrives as `umbrae` and lists as Umbrae. A repository install drops
-`hyprland.lua` and the terminal configs; see
+`omarchy theme install` clones the repo and applies the theme. The repository
+name is the theme slug, so it arrives as `umbrae` and lists as Umbrae. A
+repository install drops `hyprland.lua` and the terminal configs; see
 [Where the geometry actually comes from](#where-the-geometry-actually-comes-from).
 
 Re-applying with `omarchy theme set "Umbrae"` refreshes the palette but also
