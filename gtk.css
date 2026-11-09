@@ -1,12 +1,12 @@
 /*
- * Zigzag Moderne: a GTK 3 and GTK 4 companion
+ * Umbrae: a GTK 3 and GTK 4 companion
  * ──────────────────────────────────────────────────────────────────────────
  * Flat lacquer, gold hairlines, and square corners everywhere: the sheet keeps
  * the compositor's geometry rather than softening it. Set over Adwaita; apps
  * that style themselves will ignore most of it, which is fine.
  *
  * Omarchy's GTK shim already imports this file from the active theme, so it
- * applies only while Zigzag Moderne is applied. If that shim is missing, write
+ * applies only while Umbrae is applied. If that shim is missing, write
  * the import by hand (and for gtk-3.0 as well):
  *
  *   printf '@import url("file://%s/.local/state/omarchy/current/theme/gtk.css");\n' "$HOME" \

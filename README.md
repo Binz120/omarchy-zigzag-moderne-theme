@@ -1,4 +1,4 @@
-# Zigzag Moderne
+# Umbrae
 
 An Omarchy theme built the way the style was built: black lacquer, gold
 linework, and geometry doing all the work. Square corners, a two pixel rail of
@@ -12,26 +12,26 @@ in `colors.toml`, so it applies on any install; the rest of the geometry is the
 short block below for `hyprland.lua`. Your own wallpapers live outside the theme
 entirely.
 
-![Zigzag Moderne with an editor and a file manager open](preview.webp)
-![Zigzag Moderne in a terminal session](preview-terminal.webp)
-![Zigzag Moderne on an empty desktop](preview-wallpaper.webp)
+![Umbrae with an editor and a file manager open](preview.webp)
+![Umbrae in a terminal session](preview-terminal.webp)
+![Umbrae on an empty desktop](preview-wallpaper.webp)
 
 ---
 
 ## Apply
 
 ```bash
-omarchy theme install https://github.com/Binz120/omarchy-zigzag-moderne-theme
+omarchy theme install https://github.com/Binz120/omarchy-umbrae-theme
 ```
 
 `omarchy theme install` clones the repo and applies the theme. It strips the
 leading `omarchy-` and the trailing `-theme` from the repository name, so the
-theme arrives as `zigzag-moderne` and lists as Zigzag Moderne. A repository
-install drops `hyprland.lua` and the terminal configs; see
+theme arrives as `umbrae` and lists as Umbrae. A repository install drops
+`hyprland.lua` and the terminal configs; see
 [Where the geometry actually comes from](#where-the-geometry-actually-comes-from).
 
-Re-applying with `omarchy theme set "Zigzag Moderne"` refreshes the palette but
-also advances the background to the next file; pin one with
+Re-applying with `omarchy theme set "Umbrae"` refreshes the palette but also
+advances the background to the next file; pin one with
 `omarchy theme bg set <path>` if you do not want that.
 
 The work tree that produced this repository keeps `hyprland.lua` locally, which
@@ -40,7 +40,7 @@ is where the full geometry lives.
 Its own wallpapers come with it. To use one of yours instead:
 
 ```bash
-omarchy theme bg install          # opens ~/.config/omarchy/backgrounds/zigzag-moderne/
+omarchy theme bg install          # opens ~/.config/omarchy/backgrounds/umbrae/
 omarchy theme bg next             # cycle them
 ```
 
@@ -163,7 +163,7 @@ Omarchy, so no terminal configs ship here. There is no `unlock.png` and no
 Plymouth wordmark.
 
 No stock files are touched: everything lives in
-`~/.config/omarchy/themes/zigzag-moderne/`.
+`~/.config/omarchy/themes/umbrae/`.
 
 ---
 
