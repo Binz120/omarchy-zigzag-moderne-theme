@@ -7,10 +7,10 @@ anywhere (with Omarchy's Glassy toggle off, see the caveat below). The desktop
 should read as a machined surface, a gilt pavilion after dark rather than glass.
 
 It ships four stills — two gold skulls on black, a memento mori medallion over
-fog, and a gilt-veined illustration — one of them the default. The rail travels
-in `colors.toml`, so it applies on any install; the rest of the geometry is the
-short block below for `hyprland.lua`. Your own wallpapers live outside the theme
-entirely.
+fog, and an illustration veined in gilt — one of them the default. The rail
+travels in `colors.toml`, so it applies on any install; the rest of the
+geometry is the short block below for `hyprland.lua`. Your own wallpapers live
+outside the theme entirely.
 
 ![Umbrae with an editor and a file manager open](preview.webp)
 ![Umbrae in a terminal session](preview-terminal.webp)
@@ -29,8 +29,8 @@ name is the theme slug, so it arrives as `umbrae` and lists as Umbrae. A
 repository install drops `hyprland.lua` and the terminal configs; see
 [Where the geometry actually comes from](#where-the-geometry-actually-comes-from).
 
-Re-applying with `omarchy theme set "Umbrae"` refreshes the palette but also
-advances the background to the next file; pin one with
+Applying the theme again with `omarchy theme set "Umbrae"` refreshes the palette
+but also advances the background to the next file; pin one with
 `omarchy theme bg set <path>` if you do not want that.
 
 The work tree that produced this repository keeps `hyprland.lua` locally, which
